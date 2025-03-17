@@ -35,11 +35,11 @@ pip install -r requirements.txt
 python genetic_football.py
 ```
 
-## ⚙️ Requirements
+## Requirements
 - Dataset: `fifa23.csv` (Ensure this file is located in the root or `data/` directory)
 - The Scrip will automatically download the dataset if `fifa23.csv` is not found.
 
-## 📄 Additional Notes
+## Additional Notes
 - If new Python packages are added, update `requirements.txt` with:
 ```bash
 pip freeze > requirements.txt
@@ -50,7 +50,7 @@ pip freeze > requirements.txt
 deactivate
 ```
 
-## 🗂️ Project Structure
+## Project Structure
 ```
 project_name/
 ├── venv/                # Virtual environment (excluded from sharing)
@@ -61,7 +61,7 @@ project_name/
 └── genetic_football.py  # Entry point of the project
 ```
 
-## 💡 Project Highlights
+## Project Highlights
 - **Genetic Algorithm (GA)** for lineup optimization.
 - Fitness function balances performance and cost.
 - Visualizes optimal player formations using Matplotlib.
