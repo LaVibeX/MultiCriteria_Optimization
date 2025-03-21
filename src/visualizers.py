@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import os
 
 def draw_soccer_field():
     fig, ax = plt.subplots(figsize=(12, 8))
@@ -47,7 +48,7 @@ visual_positions = {
 }
 
 # Visualization
-def visualize_lineup(solution, title):
+def visualize_lineup(solution,opponent, title):
     ax = draw_soccer_field()
     for _, player in solution['players'].iterrows():
         role = player['Assigned Role']
@@ -55,4 +56,10 @@ def visualize_lineup(solution, title):
         plt.scatter(x, y, color='blue', s=300)
         plt.text(x, y, player['Full Name'], ha='center', va='center', color='white', fontsize=10, fontweight='bold')
     plt.title(title)
+        # Define file name format
+    filename = f"Against_{opponent}_{solution['formation']}.png"
+    save_path = os.path.join("data/results", filename)  # Save inside the 'data' folder
+
+    # Save the figure
+    plt.savefig(save_path, dpi=300, bbox_inches='tight')
     plt.show()

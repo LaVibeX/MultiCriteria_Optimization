@@ -19,11 +19,14 @@ def download_fifa_dataset():
     
     # Download the dataset
     print("Downloading FIFA 23 dataset from Kaggle...")
-    path = kagglehub.dataset_download("sanjeetsinghnaik/fifa-23-players-dataset")
-
-    # Locate the downloaded CSV file
-    downloaded_file = next((file for file in os.listdir(path) if file.endswith('.csv')), None)
-
+    try:
+        path = kagglehub.dataset_download("sanjeetsinghnaik/fifa-23-players-dataset")
+        # Locate the downloaded CSV file
+        downloaded_file = next((file for file in os.listdir(path) if file.endswith('.csv')), None)
+        print(downloaded_file)
+        
+    except Exception as e:
+        print(f"Failed to download the dataset: {e}")
     # Move and rename the dataset file
     if downloaded_file:
         shutil.move(os.path.join(path, downloaded_file), target_path)
